@@ -39,6 +39,6 @@ conn.close()
 # return all files as a list
 for file in os.listdir(r'D:\GFG'):
      # check the files which are end with specific extention
-    if file.endswith(".png"):
+    if file.endswith(".txt"):
         # print path name of selected files
         print(os.path.join(r'C:\GFG\Screenshots', file))
