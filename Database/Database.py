@@ -28,8 +28,8 @@ with conn:
                 ('data.pdf',))
     cur.execute("INSERT INTO tbl_for_database_assignment(col_file_list) VALUES (?)", \
                 ('myPhoto.jpg',))
+
     #Printing file names ending in '.txt'
-    
     cur.execute("SELECT col_file_list FROM tbl_for_database_assignment WHERE col_file_list LIKE '%.txt'")
     row = cur.fetchall()
     print(row)
