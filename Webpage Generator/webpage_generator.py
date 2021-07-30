@@ -1,4 +1,5 @@
 
+import webbrowser
 
 # Create new html file in write mode
 f = open('webpage_generator.html', 'w')
@@ -17,3 +18,7 @@ f.write(html_template)
 
 # Close the file
 f.close()
+
+
+# Open file in web browser
+webbrowser.open_new_tab('webpage_generator.html')
