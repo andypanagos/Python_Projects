@@ -2,6 +2,7 @@
 
 import tkinter
 from tkinter import *
+import webbrowser
 
 
 class ParentWindow(Frame):
@@ -21,17 +22,28 @@ class ParentWindow(Frame):
         self.varBodyText = StringVar()
 
         self.lblBodyText = Label(self.master, text='Enter text: ', font=("Helvetica", 16), fg='black', bg='lightgray')
-        self.lblBodyText.grid(row=0, column=0, padx=(30,0), pady=(30,0))
+        self.lblBodyText.grid(row=0, column=0, padx=(20,0), pady=(30,0))
 
         self.txtBodyText = Entry(self.master,text=self.varBodyText, font=("Helvetica", 16), fg='black', bg='white')
-        self.txtBodyText.grid(row=0, column=1, padx=(30,0), pady=(30,0))
-        self.txtBodyText.pack(width=100,height=50)
+        self.txtBodyText.grid(row=0, column=1, padx=(15,0), pady=(30,0))
+        
 
         # Creating Buttons
-        self.btnSubmit = Button(self.master, text="Submit", width=10, height=2)
-        self.btnSubmit.grid(row=3, padx=(0,0), pady=(0,0))
+        self.btnSubmit = Button(self.master, text="Submit", width=10, height=2, command=self.submit)
+        self.btnSubmit.grid(row=2, padx=(0,0), pady=(15,0))
+
+        self.btnCancel = Button(self.master, text="Cancel", width=10, height=2, command=self.cancel)
+        self.btnCancel.grid(row=2, column=1, padx=(15,0), pady=(15,0), sticky=W)
         
                              
+    # Defining button functions
+    def submit(self):
+        bt = self.txtBodyText.get()
+        webbrowser.open_new_tab('webpage_generator.html')
+
+
+    def cancel(self):
+        self.master.destroy()
             
             
 
