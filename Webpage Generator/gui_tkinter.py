@@ -4,7 +4,6 @@ import tkinter
 from tkinter import *
 import webbrowser
 
-import webpage_generator
 import gui_func
 
 
@@ -17,8 +16,8 @@ class ParentWindow(Frame):
         # Creating master frame
         self.master = master
         self.master.resizable(width=False, height=False)
-        self.master.geometry('{}x{}'.format(600, 300))
-        gui_func.center_window(self,600,300)
+        self.master.geometry('{}x{}'.format(500, 300))
+        gui_func.center_window(self,500,300)
         self.master.title('Input Text')
         self.master.config(bg='lightgray')
 
