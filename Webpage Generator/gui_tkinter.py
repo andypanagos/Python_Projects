@@ -44,7 +44,12 @@ class ParentWindow(Frame):
     def submit(self):
         bt = self.txtBodyText.get()
         f = open('new_webpage.html', 'w')
-        
+        new_template = """<html>
+        <body>
+        <h1 id=input></h1>
+        </body>
+        </html>
+        """
         webbrowser.open_new_tab('new_webpage.html')
 
 
