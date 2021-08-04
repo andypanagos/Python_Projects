@@ -1,3 +1,14 @@
+#
+# Python Ver:   3.9.6
+#
+# Author:       Jeff Stoppel
+#
+# Purpose:      This creates a webpage template
+#               
+#
+#
+#
+#
 
 import webbrowser
 

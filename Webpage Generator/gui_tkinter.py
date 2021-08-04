@@ -1,3 +1,14 @@
+#
+# Python Ver:   3.9.6
+#
+# Author:       Jeff Stoppel
+#
+# Purpose:      To create a GUI that takes a user's input
+#               and sets it as the body text for a web page
+#
+#
+#
+#
 
 
 import tkinter
@@ -42,14 +53,14 @@ class ParentWindow(Frame):
                              
     # Defining button functions
     def submit(self):
-        bt = self.txtBodyText.get()
-        f = open('new_webpage.html', 'w')
+        bt = self.txtBodyText.get()     # User input
+        f = open('new_webpage.html', 'w')   
         new_template = """<html>
         <body>
         <h1>{}</h1>
         </body>
         </html>
-        """.format(bt)
+        """.format(bt)      # Inserting user input into html file
         f.write(new_template)
         f.close()
         webbrowser.open_new_tab('new_webpage.html')
