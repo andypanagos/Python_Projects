@@ -46,10 +46,12 @@ class ParentWindow(Frame):
         f = open('new_webpage.html', 'w')
         new_template = """<html>
         <body>
-        <h1 id=input></h1>
+        <h1>{}</h1>
         </body>
         </html>
-        """
+        """.format(bt)
+        f.write(new_template)
+        f.close()
         webbrowser.open_new_tab('new_webpage.html')
 
 
