@@ -44,8 +44,9 @@ class ParentWindow(Frame):
     # Defining button functions
     def update(self):
         bt = self.txtBodyText.get()
-        f = open('webpage_generator.html', 'w')
+        f = open('new_webpage.html', 'w')
         
+        webbrowser.open_new_tab('new_webpage.html')
 
 
     def cancel(self):
