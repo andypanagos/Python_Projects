@@ -4,6 +4,10 @@ import tkinter
 from tkinter import *
 import webbrowser
 
+import webpage_generator
+import gui_func
+
+
 
 class ParentWindow(Frame):
     def __init__(self, master):
@@ -14,6 +18,7 @@ class ParentWindow(Frame):
         self.master = master
         self.master.resizable(width=False, height=False)
         self.master.geometry('{}x{}'.format(600, 300))
+        gui_func.center_window(self,600,300)
         self.master.title('Input Text')
         self.master.config(bg='lightgray')
 
@@ -29,17 +34,18 @@ class ParentWindow(Frame):
         
 
         # Creating Buttons
-        self.btnSubmit = Button(self.master, text="Submit", width=10, height=2, command=self.submit)
-        self.btnSubmit.grid(row=2, padx=(0,0), pady=(15,0))
+        self.btnUpdate = Button(self.master, text="Update", width=10, height=2, command=self.update)
+        self.btnUpdate.grid(row=2, padx=(0,0), pady=(15,0))
 
         self.btnCancel = Button(self.master, text="Cancel", width=10, height=2, command=self.cancel)
         self.btnCancel.grid(row=2, column=1, padx=(15,0), pady=(15,0), sticky=W)
         
                              
     # Defining button functions
-    def submit(self):
+    def update(self):
         bt = self.txtBodyText.get()
-        webbrowser.open_new_tab('webpage_generator.html')
+        f = open('webpage_generator.html', 'w')
+        
 
 
     def cancel(self):
