@@ -9,16 +9,31 @@
 
 import shutil
 import os
-import datetime
+import time
+
+
+SECONDS_IN_DAY = 24 * 60 * 60
+
+# Time frame 
+now = time.time()
+before = now - SECONDS_IN_DAY
 
 # Set source of the files
 source = '/Users/jstop/Documents/GitHub/Python_Projects/File Transfer/Created Files/'
 
 # Set destination path to 'Copied Files'
 destination = '/Users/jstop/Documents/GitHub/Python_Projects/File Transfer/Copied Files/'
-files = os.listdir(source)
 
-for i in files:
-    modifyDate = datetime.datetime.fromtimestamp(os.path.getmtime(file))
-    todaysDate = datetime.datetime.today()
-    shutil.copy(source+i, destination)
+def last_mod_time(fname):
+    return os.path.getmtime(fname)
+
+for fname in os.listdir(source):
+    src_fname = os.path.join(source, fname)
+    if last_mod_time(src_fname) > before:
+        destination_fname = os.path.join(destination, fname)
+        shutil.copy(source+fname, destination)
+
+
+
+
+    
