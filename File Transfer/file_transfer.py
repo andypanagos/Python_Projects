@@ -11,7 +11,7 @@
 import shutil
 import os
 
-# Set where the source of teh files are
+# Set where the source of the files are
 source = '/Users/jstop/Documents/GitHub/Python_Projects/File Transfer/Folder A/'
 
 # Set the destination path to Folder B
