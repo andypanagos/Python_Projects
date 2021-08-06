@@ -64,15 +64,6 @@ class ParentWindow(Frame):
         self.btCopyButton.pack(pady=5)
 
 
-# Method to copy modified files from one folder to another        
-def copy_files():
-    source = self.txtSource.get()
-    destination = self.txtDestination.get()
-    for fname in os.listdir(source):
-        src_fname = os.path.join(source, fname)
-        if last_mod_time(src_fname) > before:
-            destination_fname = os.path.join(destination, fname)
-            shutil.copy(source+fname, destination)
 
 # Defining method to center GUI
 def center_window(self, w, h):
@@ -82,7 +73,6 @@ def center_window(self, w, h):
     y = int((screen_height/2) - (h/2))
     centerGeo = self.master.geometry('{}x{}+{}+{}'.format(w, h, x, y))
     return centerGeo
-    
 
 # Function to browse and select source folder
 def source():
@@ -96,6 +86,15 @@ def destination():
     self.txtDestination.delete(1, tk.END)
     self.txtDestination.insert(0, self.lblDestination)
 
+# Method to copy modified files from one folder to another        
+def copy_files():
+    source = self.txtSource.get()
+    destination = self.txtDestination.get()
+    for fname in os.listdir(source):
+        src_fname = os.path.join(source, fname)
+        if last_mod_time(src_fname) > before:
+            destination_fname = os.path.join(destination, fname)
+            shutil.copy(source+fname, destination)
 
 # Time Frame
 SECONDS_IN_DAY = 24 * 60 * 60
