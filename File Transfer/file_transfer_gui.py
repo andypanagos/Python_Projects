@@ -29,25 +29,38 @@ class ParentWindow(Frame):
         # Creating master frame
         self.master = master
         self.master.resizable(width=False, height=False)
-        self.master.geometry('{}x{}'.format(500, 500))
+        self.master.geometry('{}x{}'.format(500, 250))
         # Center window function from another file here
         self.master.title('File Transfer')
-        self.master.config(bg='lightgray')
+        
 
-        # Creating Frames & line
-        top_frame = Frame(self)
-        bottom_frame = Frame(self)
-        line = Frame(self, height=1, width=500, bg='grey', relief='groove')
+       
 
-        # Packing Frames
-        top_frame.pack(side=TOP)
-        line.pack(pady=10)
-        bottom_frame.pack(side=BOTTOM)
+        
 
         # Creating Source Folder text field
-        self.lblSource = Label(top_frame, text='Source Folder Path:')
-        self.txtSource = Entry(top_frame, text='', width=50)
+        self.lblSource = Label(self.master, text='Source Folder Path:')
+        self.lblSource.pack(pady=5)
+        self.txtSource = Entry(self.master, text='', width=50)
+        self.txtSource.pack(pady=5)
+        self.btBrowse = Button(self.master, text='Browse')
+        self.btBrowse.pack(pady=5)
 
+
+        self.line = Canvas(self.master, height=1, width=500, bg='grey', relief='groove')
+        self.line.pack(pady=5)
+            
+
+        self.lblDestination = Label(self.master, text='Destination Folder Path:')
+        self.lblDestination.pack(pady=5)
+        self.txtDestination = Entry(self.master, text='', width=50)
+        self.txtDestination.pack(pady=5)
+        self.btBrowse2 = Button(self.master, text='Browse')
+        self.btBrowse2.pack(pady=5)
+
+        
+        self.btCopyButton = Button(self.master, text='Copy Files to Destination', width=50)
+        self.btCopyButton.pack(pady=5)
 
 
 
