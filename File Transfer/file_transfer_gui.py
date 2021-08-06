@@ -15,58 +15,47 @@ import os
 import time
 import shutil
 import tkinter.filedialog as filedialog
-import tkinter
+import tkinter as tk
 from tkinter import *
+
+
+
 
 class ParentWindow(Frame):
     def __init__(self, master):
         Frame. __init__ (self)
 
 
-    def source():
-        source_path = tk.filedialog.askdirectory()
-        source_entry.delete(1, tk.END)
-        source_entry.insert(0, source_path)
+        # Creating master frame
+        self.master = master
+        self.master.resizable(width=False, height=False)
+        self.master.geometry('{}x{}'.format(500, 500))
+        # Center window function from another file here
+        self.master.title('File Transfer')
+        self.master.config(bg='lightgray')
+
+        # Creating Frames & line
+        top_frame = Frame(self)
+        bottom_frame = Frame(self)
+        line = Frame(self, height=1, width=500, bg='grey', relief='groove')
+
+        # Packing Frames
+        top_frame.pack(side=TOP)
+        line.pack(pady=10)
+        bottom_frame.pack(side=BOTTOM)
+
+        # Creating Source Folder text field
+        self.lblSource = Label(top_frame, text='Source Folder Path:')
+        self.txtSource = Entry(top_frame, text='', width=50)
 
 
-    def destination():
-        path = tk.filedialog.askdirectory()
-        destination_entry.delete(1, tk.END)
-        destination_entry.insert(0, path)
 
 
-    def copy_files():
-        
 
 
-    top_frame = tk.Frame(master)
-    bottom_frame = tk.Frame(master)
-    line = tk.Frame(master, height=1, width=400, bg="grey", relief="groove")
-
-    source_path = tk.Label(top_frame, text="Source Folder:")
-    source_entry = tk.Entry(top_frame, text="", width=40)
-    browse1 = tk.Button(top_frame, text="Browse", command=source)
-
-    destination_path = tk.Label(bottom_frame, text="Folder to receive copies:")
-    destination_entry = tk.Entry(bottom_frame, text="", width=40)
-    browse2 = tk.Button(bottom_frame, text="Browse", command=destination)
-
-    copy_button = tk.Button(bottom_frame, text="Copy Files", command=copy_files)
 
 
-    top_frame.pack(side=tk.TOP)
-    line.pack(pady=10)
-    bottom_frame.pack(side=tk.BOTTOM)
 
-    source_path.pack(pady=5)
-    source_entry.pack(pady=5)
-    browse1.pack(pady=5)
-
-    destination_path.pack(pady=5)
-    destination_entry.pack(pady=5)
-    browse2.pack(pady=5)
-
-    copy_button.pack(pady=20, fill=tk.X)
 
 
 
