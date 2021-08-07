@@ -85,16 +85,20 @@ def destination(self):
     self.lblDestination = tk.filedialog.askdirectory()
     self.txtDestination.delete(0, tk.END)
     self.txtDestination.insert(0, self.lblDestination)
+    
 
 # Method to copy modified files from one folder to another        
 def copy_files(self):
-    source = self.txtSource.get()
-    destination = self.txtDestination.get()
+    getSource = self.txtSource.get()
+    getDestination = self.txtDestination.get()
+    source = getSource + '/'
+    destination = getDestination + '/'
     for fname in os.listdir(source):
         src_fname = os.path.join(source, fname)
         if last_mod_time(src_fname) > before:
             destination_fname = os.path.join(destination, fname)
             shutil.copy(source+fname, destination)
+            
 
 # Time Frame
 SECONDS_IN_DAY = 24 * 60 * 60
