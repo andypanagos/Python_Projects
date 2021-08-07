@@ -42,7 +42,7 @@ class ParentWindow(Frame):
         self.txtSource.pack(pady=5)
         
         # Browse button
-        self.btBrowse = Button(self.master, text='Browse', command=source)
+        self.btBrowse = Button(self.master, text='Browse', command=lambda: get_source(self))
         self.btBrowse.pack(pady=5)
 
         # Line to seperate source section from destination section
@@ -56,11 +56,11 @@ class ParentWindow(Frame):
         self.txtDestination = Entry(self.master, text='', width=50)
         self.txtDestination.pack(pady=5)
         # Browse button
-        self.btBrowse2 = Button(self.master, text='Browse', command=destination)
+        self.btBrowse2 = Button(self.master, text='Browse', command=lambda: destination(self))
         self.btBrowse2.pack(pady=5)
 
         # Button to copy files from source folder to destination folder
-        self.btCopyButton = Button(self.master, text='Copy Files to Destination', width=50, command=copy_files)
+        self.btCopyButton = Button(self.master, text='Copy Files to Destination', width=50, command=lambda: copy_files(self))
         self.btCopyButton.pack(pady=5)
 
 
@@ -75,19 +75,19 @@ def center_window(self, w, h):
     return centerGeo
 
 # Function to browse and select source folder
-def source():
+def get_source(self):
     self.lblSource = tk.filedialog.askdirectory()
-    self.txtSource.delete(1, tk.END)
+    self.txtSource.delete(0, tk.END)
     self.txtSource.insert(0, self.lblSource)
 
 # Function to browse and select destination folder
-def destination():
+def destination(self):
     self.lblDestination = tk.filedialog.askdirectory()
-    self.txtDestination.delete(1, tk.END)
+    self.txtDestination.delete(0, tk.END)
     self.txtDestination.insert(0, self.lblDestination)
 
 # Method to copy modified files from one folder to another        
-def copy_files():
+def copy_files(self):
     source = self.txtSource.get()
     destination = self.txtDestination.get()
     for fname in os.listdir(source):
