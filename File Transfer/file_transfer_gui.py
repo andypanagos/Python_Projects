@@ -91,8 +91,8 @@ def destination(self):
 def copy_files(self):
     getSource = self.txtSource.get()
     getDestination = self.txtDestination.get()
-    source = getSource + '/'
-    destination = getDestination + '/'
+    source = getSource + '/'                # This adds a '/' to the end of the file path, because the file path inserted into self.txtSource doesn't end with a '/'
+    destination = getDestination + '/'      # This adds a '/' to the end of the file path, because the file path inserted into self.txtDestination doesn't end with a '/'
     for fname in os.listdir(source):
         src_fname = os.path.join(source, fname)
         if last_mod_time(src_fname) > before:
