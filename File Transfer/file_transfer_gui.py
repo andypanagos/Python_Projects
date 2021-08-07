@@ -38,7 +38,7 @@ class ParentWindow(Frame):
         self.lblSource.pack(pady=5)
         
         # Source File Path
-        self.txtSource = Entry(self.master, text='', width=50)
+        self.txtSource = Entry(self.master, text='', width=70)
         self.txtSource.pack(pady=5)
         
         # Browse button
@@ -53,14 +53,14 @@ class ParentWindow(Frame):
         self.lblDestination = Label(self.master, text='Destination Folder Path:')
         self.lblDestination.pack(pady=5)
         # Destination File Path
-        self.txtDestination = Entry(self.master, text='', width=50)
+        self.txtDestination = Entry(self.master, text='', width=70)
         self.txtDestination.pack(pady=5)
         # Browse button
         self.btBrowse2 = Button(self.master, text='Browse', command=lambda: destination(self))
         self.btBrowse2.pack(pady=5)
 
         # Button to copy files from source folder to destination folder
-        self.btCopyButton = Button(self.master, text='Copy Files to Destination', width=50, command=lambda: copy_files(self))
+        self.btCopyButton = Button(self.master, text='Copy Files to Destination', width=60, command=lambda: copy_files(self))
         self.btCopyButton.pack(pady=5)
 
 
