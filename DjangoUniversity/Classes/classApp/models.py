@@ -7,3 +7,5 @@ class DjangoClasses(models.Model):
     Course_Number = models.IntegerField()
     Instructor_Name = models.CharField(max_length=50)
     Duration = models.FloatField()
+
+
