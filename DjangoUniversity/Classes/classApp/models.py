@@ -9,6 +9,3 @@ class DjangoClasses(models.Model):
     Duration = models.FloatField()
 
     objects = models.Manager()
-
-
-
