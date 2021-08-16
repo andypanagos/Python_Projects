@@ -8,4 +8,9 @@ class DjangoClasses(models.Model):
     Instructor_Name = models.CharField(max_length=50)
     Duration = models.FloatField()
 
+    objects = models.Manager()
+
+    def __str__(self):
+        return self.name
+
 
