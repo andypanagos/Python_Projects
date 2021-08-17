@@ -1,7 +1,7 @@
 from django.db import models
 
 
-# Create your models here.
+# Creating DjangoClasses model.
 class DjangoClasses(models.Model):
     Title = models.CharField(max_length=50)
     Course_Number = models.IntegerField()
@@ -11,4 +11,4 @@ class DjangoClasses(models.Model):
     objects = models.Manager()
 
     def __str__(self):
-        return self.Title
+        return self.Title   # Use 'Title' to return the name of the class
