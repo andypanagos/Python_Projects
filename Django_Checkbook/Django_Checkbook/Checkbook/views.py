@@ -5,7 +5,9 @@ from .forms import AccountForm, TransactionForm
 
 # Create your views here.
 def home(request):
-    return render(request, 'checkbook/index.html')
+    form = TransactionForm(data=request.POST or None)
+    content = {'form': form}
+    return render(request, 'checkbook/index.html', content)
 
 
 def create_account(request):
