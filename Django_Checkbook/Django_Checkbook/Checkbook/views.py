@@ -13,10 +13,6 @@ def home(request):
     return render(request, 'checkbook/index.html', content)
 
 
-def create_account(request):
-    return render(request, 'checkbook/CreateNewAccount.html')
-
-
 def balance(request, pk):
     account = get_object_or_404(Account, pk=pk)
     transactions = Transaction.Transactions.filter(account=pk)
@@ -31,10 +27,6 @@ def balance(request, pk):
             table_contents.update({t: current_total})
     content = {'account': account, 'table_contents': table_contents, 'balance': current_total}
     return render(request, 'checkbook/BalanceSheet.html', content)
-
-
-def transaction(request):
-    return render(request, 'checkbook/AddTransaction.html')
 
 
 def create_account(request):
