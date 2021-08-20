@@ -6,6 +6,9 @@ from .forms import AccountForm, TransactionForm
 # Create your views here.
 def home(request):
     form = TransactionForm(data=request.POST or None)
+    if request.method == 'POST':
+        pk = request.POST['account']
+        return balance(request, pk)
     content = {'form': form}
     return render(request, 'checkbook/index.html', content)
 
