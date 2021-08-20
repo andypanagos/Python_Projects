@@ -12,4 +12,3 @@ class Account(model.Model):
     # as the owner's name not the primary key
     def __str__(self):
         return self.first_name + ' ' + self.last_name
-    
