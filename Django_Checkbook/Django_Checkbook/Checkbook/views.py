@@ -13,7 +13,9 @@ def create_account(request):
 
 
 def balance(request):
-    return render(request, 'checkbook/BalanceSheet.html')
+    account = get_object_or_404(Account, pk=pk)
+    content = {'account': account}
+    return render(request, 'checkbook/BalanceSheet.html', content)
 
 
 def transaction(request):
