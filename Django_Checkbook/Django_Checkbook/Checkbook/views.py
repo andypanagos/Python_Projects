@@ -20,7 +20,7 @@ def transaction(request):
 
 
 def create_account(request):
-    from = AccountForm(data=request.POST or None)
+    form = AccountForm(data=request.POST or None)
     if request.method == 'POST':
         if form.is_valid():
             form.save()
@@ -30,7 +30,7 @@ def create_account(request):
 
 
 def transaction(request):
-    from = TransactionForm(data=request.POST or None)
+    form = TransactionForm(data=request.POST or None)
     if request.method == 'POST':
         if form.is_valid():
             form.save()
